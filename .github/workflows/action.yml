@@ -7,7 +7,7 @@ on:
         type: string
         required: false
 env:
-  EXTRA_RESOLVE_OPTIONS: ${{ inputs.resolve_options }}
+  EXTRA_RESOLVE_OPTIONS: ${{ github.event.inputs.extra_resolve_options }}
 jobs:
   Windows-mkspecs:
     strategy:
