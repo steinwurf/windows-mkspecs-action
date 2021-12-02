@@ -39,4 +39,4 @@ jobs:
       - name: Test
         env:
           EXTRA_TEST_COMMAND: ${{ inputs.extra_test_command }}
-        run: ${{ env.python }} waf --run_tests --run_cmd="%s $EXTRA_TEST_COMMAND"
+        run: ${{ env.python }} waf --run_tests --run_cmd="%s ${{ env.EXTRA_TEST_COMMAND }}"
