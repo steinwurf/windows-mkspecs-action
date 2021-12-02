@@ -6,8 +6,10 @@ on:
         description: "Extra Resolve Options"
         type: string
         required: false
-env:
-  EXTRA_RESOLVE_OPTIONS: ${{ github.event.inputs.extra_resolve_options }}
+      extra_test_command:
+        description: "Extra Test Command"
+        type: string
+        required: false
 jobs:
   Windows-mkspecs:
     strategy:
@@ -28,10 +30,13 @@ jobs:
       - name: Configure
         env:
           GIT_SSH_COMMAND: "ssh"
+          EXTRA_RESOLVE_OPTIONS: ${{ inputs.extra_resolve_options }}
         run: ${{ env.python }} waf configure --git_protocol=git@ --cxx_mkspec=${{ matrix.config.cxx_mkspec }} $EXTRA_RESOLVE_OPTIONS
       - name: Build
         run: |
           echo "::add-matcher::.github/gcc-problem-matcher.json"
           ${{ env.python }} waf
       - name: Test
-        run: ${{ env.python }} waf --run_tests
+        env:
+          EXTRA_TEST_COMMAND: ${{ inputs.extra_test_command }}
+        run: ${{ env.python }} waf --run_tests --run_cmd="%s ${{ env.EXTRA_TEST_COMMAND }}"
