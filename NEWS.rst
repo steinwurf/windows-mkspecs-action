@@ -8,6 +8,10 @@ Latest
 ------
 * tbd
 
+1.1.0
+-----
+* Minor: Added test command argument to pass from the caller workflow
+
 1.0.0
 -----
 * Major: Initital release.
