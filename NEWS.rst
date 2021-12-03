@@ -8,6 +8,10 @@ Latest
 ------
 * tbd
 
+2.0.0
+-----
+* Major: Changed extra_test_command input to full test_command.
+
 1.1.0
 -----
 * Minor: Added test command argument to pass from the caller workflow
