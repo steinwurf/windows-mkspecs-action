@@ -30,7 +30,11 @@ jobs:
         env:
           GIT_SSH_COMMAND: "ssh"
           EXTRA_RESOLVE_OPTIONS: ${{ inputs.extra_resolve_options }}
-        run: python waf configure --git_protocol=git@ --cxx_mkspec=${{ matrix.config.cxx_mkspec }} ${{ env.EXTRA_RESOLVE_OPTIONS }}
+        uses: nick-fields/retry@v2
+        with:
+          max_attempts: 3
+          timeout_minutes: 15
+          command: python waf configure --git_protocol=git@ --cxx_mkspec=${{ matrix.config.cxx_mkspec }} ${{ env.EXTRA_RESOLVE_OPTIONS }}
       - name: Build
         run: |
           echo "::add-matcher::.github/gcc-problem-matcher.json"
