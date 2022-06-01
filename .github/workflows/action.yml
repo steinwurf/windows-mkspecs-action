@@ -21,7 +21,7 @@ jobs:
             name: MSVC 17 32-bit
           - cxx_mkspec: cxx_msvc17_x64
             name: MSVC 17 64-bit
-    runs-on: [self-hosted, "${{ matrix.config.cxx_mkspec }}", builder]
+    runs-on: [self-hosted, cxx_msvc16_x64, builder]
     name: ${{ matrix.config.name }}
     steps:
       - name: Checkout
