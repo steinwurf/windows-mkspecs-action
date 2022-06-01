@@ -17,10 +17,10 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - cxx_mkspec: cxx_msvc16_x86
-            name: MSVC 16 32-bit
-          - cxx_mkspec: cxx_msvc16_x64
-            name: MSVC 16 64-bit
+          - cxx_mkspec: cxx_msvc17_x86
+            name: MSVC 17 32-bit
+          - cxx_mkspec: cxx_msvc17_x64
+            name: MSVC 17 64-bit
     runs-on: [self-hosted, "${{ matrix.config.cxx_mkspec }}", builder]
     name: ${{ matrix.config.name }}
     steps:
