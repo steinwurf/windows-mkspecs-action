@@ -6,7 +6,7 @@ every change, see the Git log.
 
 Latest
 ------
-* tbd
+* Major: Updated workflow to MSVC 17.x
 
 3.0.0
 -----
