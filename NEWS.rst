@@ -8,6 +8,10 @@ Latest
 ------
 * tbd
 
+5.0.0
+-----
+* Major: Add a max execution-time of 45 minutes
+
 4.0.0
 -----
 * Major: Updated workflow to MSVC 17.x
