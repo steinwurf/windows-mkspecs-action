@@ -6,6 +6,10 @@ every change, see the Git log.
 
 Latest
 ------
+* tbd
+
+6.1.0
+-----
 * Minor: Added problem matchers for MSVC
 
 6.0.0
