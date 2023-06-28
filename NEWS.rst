@@ -6,7 +6,7 @@ every change, see the Git log.
 
 Latest
 ------
-* tbd
+* Minor: Added problem matchers for MSVC
 
 6.0.0
 -----

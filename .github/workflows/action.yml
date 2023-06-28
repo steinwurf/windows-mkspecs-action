@@ -36,9 +36,30 @@ jobs:
           max_attempts: 3
           timeout_minutes: 15
           command: python waf configure --git_protocol=git@ --cxx_mkspec=${{ matrix.config.cxx_mkspec }} ${{ env.EXTRA_RESOLVE_OPTIONS }}
+      - name: Generate problem matcher
+        run: |
+          echo '{
+            "problemMatcher": [
+              {
+                "owner": "msvc-problem-matcher",
+                "severity": "error",
+                "pattern": [
+                  {
+                    "regexp": "^(?:\\s+\\d+\\>)?([^\\s].*)\\((\\d+),?(\\d+)?(?:,\\d+,\\d+)?\\)\\s*:\\s+(error|warning|info)\\s+(\\w{1,2}\\d+)\\s*:\\s*(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "code": 5,
+                    "message": 6
+                  }
+                ]
+              }
+            ]
+          }' > msvc-problem-matcher.json
       - name: Build
         run: |
-          echo "::add-matcher::.github/gcc-problem-matcher.json"
+          echo "::add-matcher::msvc-problem-matcher.json"
           python waf
       - name: Test
         env:
