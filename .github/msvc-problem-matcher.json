@@ -1,16 +1,17 @@
 {
     "problemMatcher": [
         {
-            "owner": "gcc-problem-matcher",
+            "owner": "msvc-problem-matcher",
             "severity": "error",
             "pattern": [
                 {
-                    "regexp": "^../../(.*):(\\d+):(\\d+):\\s+(?:fatal\\s+)?(warning|error):\\s+(.*)$",
+                    "regexp": "^(?:\\s+\\d+\\>)?([^\\s].*)\\((\\d+),?(\\d+)?(?:,\\d+,\\d+)?\\)\\s*:\\s+(error|warning|info)\\s+(\\w{1,2}\\d+)\\s*:\\s*(.*)$",
                     "file": 1,
                     "line": 2,
                     "column": 3,
                     "severity": 4,
-                    "message": 5
+                    "code": 5,
+                    "message": 6
                 }
             ]
         }

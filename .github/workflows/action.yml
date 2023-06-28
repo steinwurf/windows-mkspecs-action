@@ -38,7 +38,7 @@ jobs:
           command: python waf configure --git_protocol=git@ --cxx_mkspec=${{ matrix.config.cxx_mkspec }} ${{ env.EXTRA_RESOLVE_OPTIONS }}
       - name: Build
         run: |
-          echo "::add-matcher::.github/gcc-problem-matcher.json"
+          echo "::add-matcher::.github/msvc-problem-matcher.json"
           python waf
       - name: Test
         env:
